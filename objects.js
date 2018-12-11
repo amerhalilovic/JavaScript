@@ -1,12 +1,14 @@
-var userOne = {
-    email: 'amer.halilovic@stu.ibu.edu.ba',
-    name: 'Amer',
-    login(){
-        console.log(this.email, 'has logged in');
-    },
-    logout(){
-        console.log(this.email,'has logget out');
+class User {
+    constructor(email, name) {
+        this.email = email;
+        this.name = name;
     }
-};
+}
 
-userOne.name='Amerinho';
+var userOne = new User('amer@gmail.com','Amer');
+var userTwo = new User('hanad@hotmail.com','Hanad');
+
+console.log(userOne);
+console.log(userTwo);
+
+
