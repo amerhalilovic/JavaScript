@@ -2,29 +2,39 @@ class User {
     constructor(email, name) {
         this.email = email;
         this.name = name;
-        this.score= 0;
+        this.score = 0;
     }
 
-    login(){
-        console.log(this.email,' just logged in');
+    login() {
+        console.log(this.email, ' just logged in');
         return this;
     }
 
-    logout(){
+    logout() {
         console.log(this.email, ' just logged out');
         return this;
     }
-    updateScore(){
+    updateScore() {
         this.score++;
-        console.log(this.email,' score is now',this.score);
+        console.log(this.email, ' score is now', this.score);
         return this;
-   
+
     }
-    
+
+}
+class Admin extends User {
+
+    deleteUser(user) {
+        user = users.filter(u => {
+            return u.email != user.email;
+        })
+    }
 }
 
-var userOne = new User('amer@gmail.com','Amer');
-var userTwo = new User('hanad@hotmail.com','Hanad');
+var userOne = new User('amer@gmail.com', 'Amer');
+var userTwo = new User('hanad@hotmail.com', 'Hanad');
+var admin= new Admin('amchoo@gmail.com','Amer');
 
-userOne.login().updateScore().updateScore().logout();
+var users = [userOne, userTwo];
 
+admin.deleteUser(userTwo);
